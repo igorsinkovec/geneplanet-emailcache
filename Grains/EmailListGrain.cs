@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace EmailCache
 {
-    public class EmailListGrain : IList
+    public class EmailListGrain : IEmailList
     {
         public string Domain { get; set; }
 
@@ -14,7 +14,7 @@ namespace EmailCache
             _emails = new StringCollection();
         }
 
-        Task IList.Add(string email)
+        Task IEmailList.Add(string email)
         {
             if (!_emails.Contains(email)) {
                 _emails.Add(email);
@@ -22,7 +22,7 @@ namespace EmailCache
             return Task.CompletedTask;
         }
 
-        Task IList.Remove(string email)
+        Task IEmailList.Remove(string email)
         {
             int i = _emails.IndexOf(email);
             while (i > -1) {
@@ -32,12 +32,12 @@ namespace EmailCache
             return Task.CompletedTask;
         }
 
-        Task<bool> IList.Contains(string email)
+        Task<bool> IEmailList.Contains(string email)
         {
             return Task.FromResult(_emails.Contains(email));
         }
 
-        Task<int> IList.Count()
+        Task<int> IEmailList.Count()
         {
             return Task.FromResult(_emails.Count);
         }

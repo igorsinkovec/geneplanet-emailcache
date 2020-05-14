@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace EmailCache
 {
-    public interface IList : Orleans.IGrainWithIntegerKey
+    public interface IEmailList : Orleans.IGrainWithIntegerKey
     {
         Task Add(string email);
 
