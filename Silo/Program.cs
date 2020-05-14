@@ -3,7 +3,6 @@ using Orleans;
 using Orleans.Configuration;
 using Orleans.Hosting;
 using System;
-using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace EmailCache
